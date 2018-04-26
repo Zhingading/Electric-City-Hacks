@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+
+  <button id= "timestart"onclick="startCountdown()">Click this</button>
+  <p id="time-remaining">1:00</p>
+
+<script>
+
+var timeRemaing = 60;
+
+function startCountdown() {
+
+  var interval = setInterval(function() {
+    timeRemaing--;
+    updateTime();
+    if (timeRemaing == 0) {
+      clearInterval(interval);
+    }
+  }, 1000);
+}
+
+function updateTime() {
+  var minutes = Math.floor(timeRemaing/60);
+  var seconds = timeRemaing % 60;
+
+  
+  var time = minutes.toString() + ":" + seconds.toString();
+  document.getElementById('time-remaining').innerHTML = time;
+}
+
+</script>
+</body>
+</html>
